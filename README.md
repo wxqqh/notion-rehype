@@ -1,5 +1,7 @@
 # notion-rehype
 
+An CommonJS Module For notion-rehype. ESM is provided https://github.com/Mongkii/notion-rehype
+
 Turn Notion blocks(from API) into rehype(hast), so you can make the most of the rich rehype ecosystem.
 
 ## Usage
