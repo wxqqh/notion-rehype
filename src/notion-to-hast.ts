@@ -28,8 +28,10 @@ export const notionToHast = (blocks: any[], options: Options) => {
       if (!taskOrArray) {
         return;
       }
-      for (let i = taskOrArray.length - 1; i > -1; i -= 1) {
-        tasks.push(iterItem(taskOrArray[i], i));
+      if (Array.isArray(taskOrArray)) {
+        for (let i = taskOrArray.length - 1; i > -1; i -= 1) {
+          tasks.push(iterItem(taskOrArray[i]!, i));
+        }
       }
     },
     addFootnote: (footnote: any) => {

@@ -19,8 +19,8 @@ export function h(...args: any[]): Root | Element | Text {
     return { type: args[0], value: args[1] };
   }
   return Array.isArray(args[1])
-    ? { type: 'element', tagName: args[0], children: args[1] }
-    : { type: 'element', tagName: args[0], properties: args[1], children: args[2] };
+    ? { type: 'element', tagName: args[0], properties: {}, children: args[1] }
+    : { type: 'element', tagName: args[0], properties: args[1], children: args[2]};
 }
 
 export const notionPrefixFactory = (context: Context) => {
@@ -37,7 +37,7 @@ export const getNotionFileUrlAndAttr = (
 
   const fileType = data.type;
 
-  return { url: data[fileType], attr: { [attrName]: fileType } };
+  return { url: data[fileType] || '', attr: { [attrName]: fileType } };
 };
 
 export const hasChildren = (data: any) => (data.children?.length || 0) > 0;
